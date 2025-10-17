@@ -1,11 +1,58 @@
+@use 'fonts' ;
+@use 'header';
+@use 'hero';
 @use 'variaveis';
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 0;;    
 }
 
-body{
-    background-color: variaveis.$corDeFundo;
+body {
+    background-color: variaveis.$fundoPrinc;
+}
+
+// ======= MIXINS =======
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTexto;
+}
+
+@mixin title($fontSize: 40px) {
+    // 💡 CORREÇÃO AQUI: Passamos a variável $fontSize para o mixin 'text'
+    @include text($fontSize); 
+    
+    color: variaveis.$corTitulosSection;
+    font-family: 'Ringbearer', serif;
+    text-shadow: 0 0 8px rgba(variaveis.$corTitulosSection, 0.3);
+}
+
+// ======= TÍTULOS =======
+.title--big {
+    // Chama title(44px). title repassa 44px para text. Resultado: 44px
+    @include title(44px); 
+    font-family: fonts.$fontTitle;
+    color: variaveis.$corTitulosPrincipal;
+}
+
+.title {
+    // Chama title(40px). title repassa 40px para text. Resultado: 40px
+    @include title(40px);
+    font-family: fonts.$fontSection;
+    color: variaveis.$corTitulosSection;
+}
+
+.title--small {
+    @include title(18px);
+    font-family: fonts.$fontSection;
+    color: variaveis.$corTitulosSection;
+}
+
+// ======= TEXTOS =======
+.text {
+    @include text(16px);
+    font-family: fonts.$fontSection;
+    color: variaveis.$corTexto;
 }

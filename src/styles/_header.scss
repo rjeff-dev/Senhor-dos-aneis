@@ -1,0 +1,30 @@
+@use 'variaveis';
+
+.header{
+    background-color: variaveis.$fundoPrinc;
+
+    &__container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 36px;
+        
+    }
+
+    &__logo{
+        max-width: 80px;
+        width: 100%;
+    }
+
+    &__links{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        gap: 8px;
+        text-decoration: none;
+
+        &__item{
+        }
+    }
+}
