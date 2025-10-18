@@ -27,7 +27,7 @@ function html() {
 
 function fonts() {
     // ESTA É A MELHOR CORREÇÃO. O **/* encontra arquivos em QUALQUER subpasta.
-    return gulp.src('./src/fonts/**/*.{woff,woff2,ttf,TTF,otf,OTF}') 
+        return gulp.src('./fonts/**/*.{woff,woff2,ttf,TTF,otf,OTF}') 
         .pipe(gulp.dest('./dist/fonts'));
 }
 
