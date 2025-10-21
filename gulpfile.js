@@ -6,6 +6,7 @@ const cleanCss = require('gulp-clean-css');
 const imagemin = require("gulp-imagemin");
 const cssUrlAdjuster  = require('gulp-css-url-adjuster');
 const terser = require('gulp-terser');
+const replace = require('gulp-replace');
 
 function scripts() { //uglify para minificar o arquivo .js
     return gulp.src('./src/scripts/*.js')
@@ -27,6 +28,10 @@ function styles(){
 function html() {
     return gulp
         .src('src/*.html') // pega os HTMLs da pasta src
+        //ajeitar o caminho...
+        .pipe(replace('../dist/', './'))
+        .pipe(replace('../../', './'))
+        .pipe(replace('../', './'))
         .pipe(htmlmin({ collapseWhitespace: true })) // remove espaços e quebras
         .pipe(gulp.dest('dist')); // envia pro dist/
 }
