@@ -1,30 +1,59 @@
 @use 'variaveis';
 
-.header{
+.header {
     background-color: variaveis.$fundoPrinc;
 
-    &__container{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    &__container {
         padding: 8px 36px;
-        
-    }
-
-    &__logo{
-        max-width: 80px;
-        width: 100%;
-    }
-
-    &__links{
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        list-style: none;
-        gap: 8px;
-        text-decoration: none;
+        align-items: center; // alinha verticalmente logo e título
+        justify-content: center; // centraliza tudo no meio do header
+        gap: 12px; // espaço entre logo e título
+        position: relative;
+    }
 
-        &__item{
+    &__logo {
+        height: 60px; // define altura proporcional ao h1
+        width: auto; // mantém proporção do logo
+        display: block;
+    }
+
+    h1 {
+        font-size: 2.8rem; // ajuste conforme o tamanho do logo
+        margin: 0;
+        color: variaveis.$corTxtHero;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+    }
+
+    &__links {
+        position: absolute;
+        right: 36px; // joga o menu à direita
+        top: 50%;
+        transform: translateY(-50%); // centraliza verticalmente o menu
+        display: flex;
+        gap: 16px;
+        list-style: none;
+
+        &__item {
+            color: variaveis.$corTxtHero;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    }
+
+    .button{
+        color: variaveis.$corTitulosPrincipal;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1em;
+        transition: color 0.3s ease;
+        
+        &:hover {
+            color: variaveis.$corHover; // se tiver essa variável
+            text-shadow: 0 0 8px variaveis.$corHover;
+            transform: scale(1.05);
         }
     }
 }

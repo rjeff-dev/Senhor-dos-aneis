@@ -5,6 +5,13 @@ const htmlmin = require('gulp-htmlmin');
 const cleanCss = require('gulp-clean-css');
 const imagemin = require("gulp-imagemin");
 const cssUrlAdjuster  = require('gulp-css-url-adjuster');
+const terser = require('gulp-terser');
+
+function scripts() { //uglify para minificar o arquivo .js
+    return gulp.src('./src/scripts/*.js')
+        .pipe(terser())
+        .pipe(gulp.dest('./dist/js'));
+}
 
 function styles(){
     return gulp.src('src/styles/style.scss') // Garante que só o arquivo principal seja compilado
@@ -41,7 +48,7 @@ function images(){
         .pipe(gulp.dest('./dist/images'));
 }
 
-exports.default = gulp.parallel(styles, images, html, fonts);
+exports.default = gulp.parallel(styles, images, html, fonts, scripts);
 
 exports.watch = function(){
     gulp.watch('./src/styles/**/*.scss', gulp.parallel(styles));

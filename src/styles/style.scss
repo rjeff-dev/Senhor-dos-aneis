@@ -1,12 +1,15 @@
+@use 'variaveis';
 @use 'fonts';
 @use 'header';
 @use 'hero';
-@use 'variaveis';
+@use 'historia';
+@use 'chars';
+@use 'trailer';
 
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;;    
+    padding: 0; 
 }
 
 body {
@@ -21,7 +24,6 @@ body {
 }
 
 @mixin title($fontSize: 40px) {
-    // 💡 CORREÇÃO AQUI: Passamos a variável $fontSize para o mixin 'text'
     @include text($fontSize); 
     
     color: variaveis.$corTitulosSection;
@@ -31,28 +33,43 @@ body {
 
 // ======= TÍTULOS =======
 .title--big {
-    // Chama title(44px). title repassa 44px para text. Resultado: 44px
-    @include title(44px); 
+    @include title(48px); 
     font-family: fonts.$fontTitle;
     color: variaveis.$corTitulosPrincipal;
 }
 
 .title {
-    // Chama title(40px). title repassa 40px para text. Resultado: 40px
     @include title(40px);
     font-family: fonts.$fontSection;
     color: variaveis.$corTitulosSection;
 }
 
-.title--small {
-    @include title(18px);
+.title--small{
+    @include text(35px);
     font-family: fonts.$fontSection;
-    color: variaveis.$corTitulosSection;
+    color: variaveis.$corTxtHero;
+    text-shadow: 2px 2px 8px #000, 0 0 12px #d4a017;
+    font-weight: bold;
+}
+
+.title--hero {
+    @include text(40px);
+    font-family: fonts.$fontSection;
+    color: variaveis.$corTxtHero;
+    text-shadow: 2px 2px 8px #000, 0 0 12px #d4a017;
+    font-weight: bold;
 }
 
 // ======= TEXTOS =======
+.text--big{
+    @include text(30px);
+    font-family: fonts.$fontSection;
+    color: #b9920f;
+    text-shadow: 2px 2px 5px #000;
+}
+
 .text {
-    @include text(16px);
+    @include text(28px);
     font-family: fonts.$fontSection;
     color: variaveis.$corTexto;
 }
