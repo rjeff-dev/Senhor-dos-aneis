@@ -10,7 +10,7 @@ const terser = require('gulp-terser');
 function scripts() { //uglify para minificar o arquivo .js
     return gulp.src('./src/scripts/*.js')
         .pipe(terser())
-        .pipe(gulp.dest('./dist/js'));
+        .pipe(gulp.dest('./dist'));
 }
 
 function styles(){
